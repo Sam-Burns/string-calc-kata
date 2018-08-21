@@ -20,4 +20,9 @@ class CalculatorSpec extends ObjectBehavior
     {
         $this->calculate('1,1')->shouldReturn(2);
     }
+
+    function it_shows_a_smiley_face_when_result_divisible_by_10()
+    {
+        $this->calculate('10,0')->shouldReturn('10 :-)');
+    }
 }
