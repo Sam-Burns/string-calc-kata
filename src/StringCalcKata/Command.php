@@ -27,7 +27,7 @@ class Command extends SymfonyConsoleCommand
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-        $inputString = $input->getArgument('inputstring');
+        $inputString = new InputString($input->getArgument('inputstring'));
         $result = $this->calculator->calculate($inputString);
         $output->writeln($result);
     }

@@ -3,8 +3,8 @@ namespace StringCalcKata;
 
 class Calculator
 {
-    public function calculate(string $inputString): int
+    public function calculate(InputString $inputString): int
     {
-        return array_sum(explode(',', $inputString));
+        return array_sum($inputString->getNumbers());
     }
 }
