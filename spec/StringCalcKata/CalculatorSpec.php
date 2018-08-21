@@ -21,4 +21,9 @@ class CalculatorSpec extends ObjectBehavior
     {
         $this->calculate('1,1')->shouldBeLike(new Result(2));
     }
+
+    function it_should_convert_characters_to_integers()
+    {
+        $this->calculate('A,B')->shouldBeLike(new Result(3));
+    }
 }
