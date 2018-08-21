@@ -3,27 +3,25 @@ namespace spec\StringCalcKata;
 
 use StringCalcKata\Calculator;
 use PhpSpec\ObjectBehavior;
+use StringCalcKata\InputProcessor;
 use StringCalcKata\Result;
 
 class CalculatorSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    function let(InputProcessor $inputProcessor)
     {
-        $this->shouldHaveType(Calculator::class);
+        $this->beConstructedWith($inputProcessor);
     }
 
-    function it_returns_zero_for_an_empty_string()
+    function it_returns_zero_for_an_empty_string(InputProcessor $inputProcessor)
     {
+        $inputProcessor->toInts('')->willReturn([]);
         $this->calculate('')->shouldBeLike(new Result(0));
     }
 
-    function it_can_add_two_numbers()
+    function it_can_add_two_numbers(InputProcessor $inputProcessor)
     {
+        $inputProcessor->toInts('1,1')->willReturn([1,1]);
         $this->calculate('1,1')->shouldBeLike(new Result(2));
-    }
-
-    function it_should_convert_characters_to_integers()
-    {
-        $this->calculate('A,B')->shouldBeLike(new Result(3));
     }
 }

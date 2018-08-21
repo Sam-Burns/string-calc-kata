@@ -3,22 +3,20 @@ namespace StringCalcKata;
 
 class Calculator
 {
+    /**
+     * @var InputProcessor
+     */
+    private $inputProcessor;
+
+    public function __construct(InputProcessor $inputProcessor)
+    {
+        $this->inputProcessor = $inputProcessor;
+    }
+
     public function calculate(string $inputString): Result
     {
-        $alphabet = str_split('abcdefghijklmnopqrstuvwxyz');
-
-        $alphabet = array_flip($alphabet);
-
-        $numbers = explode(',', $inputString);
-        $sum = 0;
-        foreach ($numbers as $key => $number)
-        {
-            if (key_exists(strtolower($number), $alphabet)) {
-                $numbers[$key] = $alphabet[strtolower($number)] + 1;
-            }
-            $sum += (int)$numbers[$key];
-        }
-
+        $ints = $this->inputProcessor->toInts($inputString);
+        $sum = array_sum($ints);
         return new Result($sum);
     }
 }
