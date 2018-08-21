@@ -18,11 +18,12 @@ class InputString
             return [];
         }
         $stringFragments = explode(',', $this->input);
-        $numbers = [];
+        $arrayOfInts = array_map([$this, 'convertToInt'], $stringFragments);
+        return $arrayOfInts;
+    }
 
-        foreach ($stringFragments as $stringFragment) {
-            $numbers[] = (int) $stringFragment;
-        }
-        return $numbers;
+    private function convertToInt(string $inputStringFragment): int
+    {
+        return (int) $inputStringFragment;
     }
 }

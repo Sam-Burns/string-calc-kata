@@ -12,6 +12,12 @@ class InputStringSpec extends ObjectBehavior
         $this->getNumbers()->shouldBe([]);
     }
 
+    function it_returns_integers()
+    {
+        $this->beConstructedWith('1');
+        $this->getNumbers()->shouldBe([1]);
+    }
+
     function it_can_split_by_commas()
     {
         $this->beConstructedWith('1,1');
