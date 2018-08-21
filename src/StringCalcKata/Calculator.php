@@ -5,6 +5,6 @@ class Calculator
 {
     public function calculate(string $inputString): int
     {
-        return 0;
+        return array_sum(explode(',', $inputString));
     }
 }

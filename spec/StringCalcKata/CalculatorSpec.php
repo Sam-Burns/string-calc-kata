@@ -15,4 +15,9 @@ class CalculatorSpec extends ObjectBehavior
     {
         $this->calculate('')->shouldReturn(0);
     }
+
+    function it_can_add_two_plus_two()
+    {
+        $this->calculate('2,2')->shouldReturn(4);
+    }
 }
