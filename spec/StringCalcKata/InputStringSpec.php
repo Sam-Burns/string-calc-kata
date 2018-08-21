@@ -23,4 +23,10 @@ class InputStringSpec extends ObjectBehavior
         $this->beConstructedWith('1,1');
         $this->getNumbers()->shouldBe([1,1]);
     }
+
+    function it_can_accept_other_delimiters()
+    {
+        $this->beConstructedWith('//%1%1');
+        $this->getNumbers()->shouldBe([1,1]);
+    }
 }
