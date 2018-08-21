@@ -10,4 +10,9 @@ class CalculatorSpec extends ObjectBehavior
     {
         $this->shouldHaveType(Calculator::class);
     }
+
+    function it_returns_zero_for_empty_input()
+    {
+        $this->calculate('')->shouldReturn(0);
+    }
 }
