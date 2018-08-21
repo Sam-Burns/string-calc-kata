@@ -3,11 +3,10 @@ namespace StringCalcKata;
 
 class Calculator
 {
-    public function calculate(string $inputString)
+    public function calculate(string $inputString): Result
     {
         $numbers = explode(',', $inputString);
         $sum = array_sum($numbers);
-
-        return $sum > 0 && $sum % 10 === 0 ? "$sum :-)" : $sum;
+        return new Result($sum);
     }
 }

@@ -29,6 +29,6 @@ class Command extends SymfonyConsoleCommand
     {
         $inputString = $input->getArgument('inputstring');
         $result = $this->calculator->calculate($inputString);
-        $output->writeln($result);
+        $output->writeln($result->display());
     }
 }
