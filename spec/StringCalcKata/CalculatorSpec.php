@@ -20,4 +20,9 @@ class CalculatorSpec extends ObjectBehavior
     {
         $this->calculate('2,2')->shouldReturn(4);
     }
+
+    function it_can_add_lots_of_numbers()
+    {
+        $this->calculate('1,1,1,1')->shouldReturn(4);
+    }
 }
